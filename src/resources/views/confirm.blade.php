@@ -16,7 +16,17 @@
             </tr>
             <tr>
                 <td>性別</td>
-                <td>{{ $contact['gender'] }}</td>
+                <td>
+                    <?php
+                        if ($contact['gender'] == '1') {
+                            echo '男性';
+                        } else if ($contact['gender'] == '2') {
+                            echo '女性';
+                        } else if ($contact['gender'] == '3') {
+                            echo 'その他';
+                        }
+                    ?>
+                </td>
                 <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
             </tr>
             <tr>
@@ -43,7 +53,7 @@
             </tr>
             <tr>
                 <td>お問い合わせの種類</td>
-                <td>{{ $contact['category_id'] }}</td>
+                <td>{{ $categories[$contact['category_id']]['content'] }}</td>
                 <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
             </tr>
             <tr>

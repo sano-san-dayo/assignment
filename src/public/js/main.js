@@ -1,10 +1,9 @@
 $('.form-btn').click(function () {
 
-    const name = $('input[name="name"]').val();
-    const gender = 
-    const email = $('input[name="email"]').val();
-    const tel = $('input[name="tel"]').val();
+    const name = $('input[name="first_name"]').val();
     const gender = $('input[name="gender"]:checked').val();
+    const email = $('input[name="email"]').val();
+    const tel = $('input[name="tel1"]').val();
     const contents = $('textarea[name="contents"]').val();
     const inputContents = contents.replace(/\r?\n/g, '<br />');
 

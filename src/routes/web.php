@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -18,13 +18,10 @@ use App\Http\Controllers\AuthController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', [ContactsController::class, 'index']);
-Route::post('/confirm', [ContactsController::class, 'contact']);
-Route::post('/thanks', [ContactsController::class, 'confirm']);
-Route::get('/register', [ContactsController::class, 'showRegister']);
-Route::post('/register', [ContactsController::class, 'register']);
-Route::post('/register', [ContactsController::class, 'register']);
-Route::get('/login', [ContactsController::class, 'login']);
+Route::get('/', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::post('/confirm', [ContactController::class, 'contact']);
+Route::post('/thanks', [ContactController::class, 'confirm']);
 Route::middleware('auth')->group(function () {
-    Route::get('/', [AuthController::class, 'index']);
+    Route::get('/admin', [AuthController::class, 'admin']);
 });
