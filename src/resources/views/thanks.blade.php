@@ -4,7 +4,7 @@
 @endsection
 
 @section ('content')
-<div>
+<div class="thanks">
     <h2>お問い合わせありがとうございました</h2>
-    <button>HOME</button>
+    <a class="thanks-button" href="/">HOME</a>
 </div>
