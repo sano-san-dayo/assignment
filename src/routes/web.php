@@ -25,3 +25,6 @@ Route::post('/thanks', [ContactController::class, 'confirm']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AuthController::class, 'admin']);
 });
+Route::middleware('auth')->group(function () {
+    Route::post('/admin', [AuthController::class, 'submit']);
+});
