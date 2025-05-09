@@ -16,7 +16,8 @@ class AuthController extends Controller
     /* 管理画面表示 */
     public function admin() {
         $categories = Category::all();
-        $contacts = Contact::all();
+        /* $contacts = Contact::all(); */
+        $contacts = Contact::Paginate(3);
         return view('admin', compact('categories', 'contacts'));
     }
 

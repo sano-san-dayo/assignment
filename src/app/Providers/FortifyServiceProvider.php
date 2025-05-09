@@ -32,7 +32,7 @@ class FortifyServiceProvider extends ServiceProvider
         
         /* ユーザ登録画面 */
         Fortify::registerView(function () {
-            return view('admin');
+            return view('register');
         });
 
         /* ログイン画面 */

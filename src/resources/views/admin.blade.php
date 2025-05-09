@@ -6,6 +6,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 @endsection
 
+<style>
+  svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+  }
+</style>
+
+
+@section ('button')
+<div>
+    <form method="post" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit">logout</button>
+    </form>
+</div>
+@endsection
+
 @section ('content')
 <div>
     <div>
@@ -47,6 +65,9 @@
     <div>
         <button>エクスポート</button>
     </div>
+    <?php
+        $i = 0;
+    ?>
     <div>
         <table>
             <tr>
@@ -56,6 +77,9 @@
                 <th>お問い合わせの種類</th>
             </tr>
             @foreach ($contacts as $contact)
+            <?php
+                $i++
+            ?>
             <tr>
                 <td>{{ "{$contact['first_name']}　{$contact['last_name']}" }}</td>
                 <td>
@@ -118,7 +142,7 @@
                                 </tr>
                                 <tr>
                                     <th>お問い合わせ内容</th>
-                                    <td>{{ $contact['detail'] }}</td>
+                                    <td>{!! nl2br(e($contact['detail'])) !!}</td>
                                 </tr>
                                 <tr>
                                     <input type="submit" name="delete-btn" value="削除">
@@ -131,12 +155,14 @@
             </tr>
             @endforeach
         </table>
+        {{ $contacts->links() }}
     </div>
 </div>
 <script>
     $(function(){
         $('.btn').on('click',function(){
-            console.log(1);
+            // どのボタンが押されたかを取得
+            var btnIndex = $(this).index();
             $($(this).data("target")).modal({});
         });
     });
@@ -150,7 +176,7 @@
 
             //Ajaxの処理はここに
             //modal-bodyのpタグにtextメソッド内を表示
-            modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
+            //modal.find('.modal-body p').eq(0).text("本当に"+title+"を削除しますか?");
             //formタグのaction属性にurlのデータ渡す
             modal.find('form').attr('action',url);
         });

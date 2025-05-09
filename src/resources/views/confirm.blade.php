@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td>お問い合わせ内容</td>
-                <td>{{ $contact['detail'] }}</td>
+                <td>{!! nl2br(e($contact['detail'])) !!}</td>
                 <input type="hidden" name="detail" value="{{ $contact['detail'] }}">
             </tr>
         </table>

@@ -3,6 +3,17 @@
 @section ('css')
 @endsection
 
+@section ('button')
+<div>
+    <form method="post">
+        @csrf
+        <div class="header__button">
+            <button class="header__btton-submit" type="button" onclick="location.href='/register'">register</button>
+        </div>            
+    </form>
+</div>
+@endsection
+
 @section ('content')
 <div class="login-form__content">
     <div class="login-form__heading">

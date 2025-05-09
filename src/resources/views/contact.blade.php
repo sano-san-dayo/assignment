@@ -18,7 +18,12 @@
                     <input type="text" name="last_name" placeholder="例: 太郎" value="{{ old('last_name') }}">
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('first_name')
+                        {{ $message }}
+                    @enderror
+                    @error ('last_name')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -37,7 +42,9 @@
                     <label for="other">その他</label>
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('gender')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -51,7 +58,9 @@
                     <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}">
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('email')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -67,7 +76,15 @@
                     <input type="test" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('tel1')
+                        {{ $message }}
+                    @enderror
+                    @error ('tel2')
+                        {{ $message }}
+                    @enderror
+                    @error ('tel3')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -81,7 +98,9 @@
                     <input type="test" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('address')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -94,7 +113,9 @@
                     <input type="test" name="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building') }}">
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('building')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -112,7 +133,9 @@
                     </select>
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('category_id')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -126,7 +149,9 @@
                     <textarea type="text" name="detail" placeholder="お問い合わせ内容をご記載ください" value="{{ old('detail') }}"></textarea>
                 </div>
                 <div class="form__error">
-                    <!-- バリデーション実装後に追記 -->
+                    @error ('detail')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>

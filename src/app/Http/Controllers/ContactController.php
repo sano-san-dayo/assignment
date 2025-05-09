@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\User;
+use App\Http\Requests\ContactRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 
 class ContactController extends Controller
 {
@@ -16,7 +19,7 @@ class ContactController extends Controller
     }
     
     /* お問い合わせ入力画面で「確認画面」ボタン押下 */
-    public function contact(Request $request) {
+    public function contact(ContactRequest $request) {
         /* 入力データ抽出 */
         $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tel1', 'tel2', 'tel3', 'address', 'building', 'category_id', 'detail']);
         /* お問い合わせの種類 */
@@ -46,23 +49,11 @@ class ContactController extends Controller
                 break;
             default:
                 /* エラー */
-                dd($request);
         }
     }
 
-    /* 管理画面 */
-    public function admin() {
-        return view('admin');
-    }
-
-    /* ユーザ登録画面 */
-    public function showregister() {
-
-        return view('register');
-    }
-
     /* ユーザ登録 */
-    public function register(Request $request) {
+    public function register(RegisterRequest $request) {
         /* 登録データ抽出 */
         $user = $request->only(['name', 'email', 'password']);
         /* 登録 */
@@ -72,7 +63,11 @@ class ContactController extends Controller
     }
 
     /* ログイン */
-    public function login() {
-        return view('login');
+    public function login(LoginRequest $request) {
+        $categories = Category::all();
+        // $contacts = Contact::all();
+        $contacts = Contact::Paginate(3);
+
+        return view('admin', compact('categories', 'contacts'));
     }
 }
