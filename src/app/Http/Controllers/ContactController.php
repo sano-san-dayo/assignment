@@ -66,7 +66,7 @@ class ContactController extends Controller
     public function login(LoginRequest $request) {
         $categories = Category::all();
         // $contacts = Contact::all();
-        $contacts = Contact::Paginate(3);
+        $contacts = Contact::Paginate(7);
 
         return view('admin', compact('categories', 'contacts'));
     }

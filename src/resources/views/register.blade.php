@@ -1,7 +1,6 @@
 @extends ('layouts.app')
-<link rel="stylesheet" href="css/register.css">
 @section ('css')
-
+<link rel="stylesheet" href="css/register.css">
 @endsection
 
 @section ('button')
@@ -9,17 +8,18 @@
     <form method="post">
         @csrf
         <div class="header__button">
-            <button class="header__btton-submit" type="button" onclick="location.href='/login'">login</button>
+            <button class="header__button--submit" type="button" onclick="location.href='/login'">login</button>
         </div>            
     </form>
-</div>@endsection
+</div>
+@endsection
 
 @section ('content')
 <div class="register-form__content">
-    <div class="registger-form__heading">
-        <h3>Register</h3>
+    <div class="register-form__heading">
+        <a>Register</a>
     </div>
-    <form class="form" action="/register" method="post">
+    <form class="register__form" action="/register" method="post">
         @csrf
         <div class="form__group">
             <div class="form__group-title">
@@ -27,7 +27,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="text" name="name" placeholder="例: 山田　太郎" value="{{ old('name') }}">
+                    <input class="form__group--input" type="text" name="name" placeholder="例: 山田　太郎" value="{{ old('name') }}">
                 </div>
                 <div class="form_error">
                     @error ('name')
@@ -42,7 +42,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="text" name="email" placeholder="例: text@example.com" value="{{ old('email') }}">
+                    <input class="form__group--input" type="text" name="email" placeholder="例: text@example.com" value="{{ old('email') }}">
                 </div>
                 <div class="form_error">
                     @error ('email')
@@ -57,7 +57,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="password" name="password" placeholder="例: coachtech1106">
+                    <input class="form__group--input" type="password" name="password" placeholder="例: coachtech1106">
                 </div>
                 <div class="form_error">
                     @error ('password')
@@ -66,8 +66,10 @@
                 </div>
             </div>
         </div>
-        <div register-form__button>
-            <button class="form__button-submit" type="submit">登録</button>
+        <div class="form__group">
+            <div class="form__button">
+                <button class="form__button-submit" type="submit">登録</button>
+            </div>
         </div>
     </form>
 </div>

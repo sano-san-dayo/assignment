@@ -1,0 +1,110 @@
+.confirm-form__content {
+    border-width: 10px;
+    border-color: #c589b0;
+}
+
+.confirm-form__heading {
+    color: #8b7969;
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 35px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 60%;
+    background-color: #fff;
+    border-color: #c5b9b0;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.confirm-table {
+    border: 1px solid #e0dfde;
+    margin: 0 auto;
+    width: 60%;
+}
+
+th {
+    color: #fff;
+    background-color: #baa899;
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 20px;
+    border: 1px solid #e0dfde;
+    width: 30%;
+}
+
+td {
+    color: #8b7969;
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 20px;
+    border: 1px solid #e0dfde;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+
+.form__label--item {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 25px;
+    color: #8b7969;
+}
+
+.form__label--required {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 25px;
+    color: #f00;
+}
+
+.form__group--input {
+    background-color: #f4f4f4;
+    width: 445px;
+    height: 55px;
+    border: none;
+}
+
+.form__group--input-tel {
+    background-color: #f4f4f4;
+    width: 150px;
+    height: 55px;
+    border: none;
+}
+
+.form__button {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.form__button-submit {
+    color: #fff;
+    background-color: #82756a;
+    border: none;
+    font-family: 'Inika';
+    font-weight: 400;
+    padding: 10px 20px;
+}
+
+.form__button-back {
+    color: #8b7969;
+    background-color: #fff;
+    border: none;
+    font-family: 'Inika';
+    font-weight: 400;
+    padding: 10px 20px;
+    text-decoration: underline;
+}
+
+.form__select {
+    color: #beb1a6;
+    background-color: #f4f4f4;
+}

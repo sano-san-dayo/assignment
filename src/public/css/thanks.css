@@ -1,0 +1,40 @@
+.main-back {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 180px;
+    color: rgba(139, 121, 105, .05);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.thanks-center {
+    color: #8b7969;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.thanks-message {
+    margin-top: .5rem;
+    margin-bottom: 3rem;
+    color: #8b7969;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.thanks-button {
+    color: #fff;
+    background-color: #82756a;
+    border: none;
+    font-family: 'Inika';
+    font-weight: 400;
+    padding: 10px 20px;
+}

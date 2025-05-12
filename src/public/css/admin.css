@@ -1,0 +1,160 @@
+.admin-form__content {
+    border-width: 10px;
+    border-color: #c589b0;
+}
+
+.admin-form__heading {
+    color: #8b7969;
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 35px;
+    text-align: center;
+}
+
+.admin__form-search {
+    margin: 0 auto;
+    width: 60%;
+    border: none;
+}
+
+.search-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form__input-freeword {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 16px;
+    border: 1px solid #e3ded9;
+    width: 30%;
+    background-color: #f4f4f4;
+    margin-right: 10px;
+}
+
+.search-form__select-gender {
+    color: #beb1a6;
+    background-color: #f4f4f4;
+    border: 1px solid #e3ded9;
+    width: 10%;
+    margin-right: 10px;
+}
+
+.search-form__select-category {
+    color: #beb1a6;
+    background-color: #f4f4f4;
+    border: 1px solid #e3ded9;
+    width: 25%;
+    margin-right: 10px;
+}
+
+.search-form__input-date {
+    color: #beb1a6;
+    background-color: #f4f4f4;
+    border: 1px solid #e3ded9;
+    width: 15%;
+    margin-right: 10px;
+}
+
+.search-form__button-submit {
+    color: #fff;
+    font-family: "Inika";
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    background-color: #82756a;
+    border: 1px solid #8b7969;
+    width: 10%;
+    margin-right: 10px;
+}
+
+.search-form__button-reset {
+    color: #fff;
+    font-family: "Inika";
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    background-color: #d9c6b5;
+    border: 1px solid #d9c6b5;
+    width: 10%;
+}
+
+.admin-table {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 60%;
+    border: 1px solid #e0dfde;
+    text-align: lefft;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 10px;
+    margin-bottom: 10px;
+}
+
+.form__label--item {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 25px;
+    color: #8b7969;
+}
+
+.form__label--required {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 25px;
+    color: #f00;
+}
+
+.form__group--input {
+    background-color: #f4f4f4;
+    width: 445px;
+    height: 55px;
+    border: none;
+}
+
+.form__group--input-tel {
+    background-color: #f4f4f4;
+    width: 150px;
+    height: 55px;
+    border: none;
+}
+
+.form__button {
+    text-align: center;
+}
+
+.form__button-submit {
+    background-color: #82756a;
+    color: #fff;
+    font-family: 'Inika';
+    font-weight: 400;
+    padding: 10px 40px;
+}
+
+.form__select {
+    color: #beb1a6;
+    background-color: #f4f4f4;
+}
+
+.table__header {
+    color: #fff;
+    background-color: #8b7969;
+}
+
+th {
+    color: #fff;
+    background-color: #8b7969;
+    text-align: left;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}
+
+.modal {
+    display: none;
+}

@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function admin() {
         $categories = Category::all();
         /* $contacts = Contact::all(); */
-        $contacts = Contact::Paginate(3);
+        $contacts = Contact::Paginate(7);
         return view('admin', compact('categories', 'contacts'));
     }
 
@@ -56,7 +56,8 @@ class AuthController extends Controller
                 });
             }
 
-            $categories = Category::all();
+            // $categories = Category::all();
+            $contacts = Contact::Paginate(7);
             $contacts = $query->get();
         } elseif ($request->has('reset-btn')) {
             $categories = Category::all();
@@ -65,9 +66,13 @@ class AuthController extends Controller
             Contact::find($request->id)->delete();
 
             $categories = Category::all();
-            $contacts = Contact::all();
+            // $contacts = Contact::all();
+            $contacts = Contact::Paginate(7);
         } else {
             $message = 'エラー';
+            $categories = Category::all();
+            // $contacts = Contact::all();
+            $contacts = Contact::Paginate(7);
         }
 
         return view('admin', compact('categories', 'contacts'));

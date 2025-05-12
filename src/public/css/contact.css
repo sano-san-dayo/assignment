@@ -1,0 +1,71 @@
+.contact-form__content {
+    border-width: 10px;
+    border-color: #c589b0;
+}
+
+.contact-form__heading {
+    color: #8b7969;
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 35px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 60%;
+    border: 1px solid #8B8969;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 10px;
+    margin-bottom: 10px;
+}
+
+.form__label--item {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 25px;
+    color: #8b7969;
+}
+
+.form__label--required {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 25px;
+    color: #f00;
+}
+
+.form__group--input {
+    background-color: #f4f4f4;
+    width: 445px;
+    height: 55px;
+    border: none;
+}
+
+.form__group--input-tel {
+    background-color: #f4f4f4;
+    width: 150px;
+    height: 55px;
+    border: none;
+}
+
+.form__button {
+    text-align: center;
+}
+
+.form__button-submit {
+    background-color: #82756a;
+    color: #fff;
+    font-family: 'Inika';
+    font-weight: 400;
+    padding: 10px 40px;
+}
+
+.form__select {
+    color: #beb1a6;
+    background-color: #f4f4f4;
+}
