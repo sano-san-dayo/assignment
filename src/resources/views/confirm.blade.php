@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <th>メールアドレス</th>
-                <td>test@example.com</td>
+                <td>{{ $contact['email'] }}</td>
                 <input type="hidden" name="email" value="{{ $contact['email'] }}">
             </tr>
             <tr>

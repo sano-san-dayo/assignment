@@ -56,25 +56,20 @@ class AuthController extends Controller
                 });
             }
 
-            // $categories = Category::all();
-            $contacts = Contact::Paginate(7);
-            $contacts = $query->get();
+            // $contacts = $query->get();
+            $contacts = $query->paginate(7);
         } elseif ($request->has('reset-btn')) {
-            $categories = Category::all();
-            $contacts = Contact::all();
+            $contacts = Contact::Paginate(7);
         } elseif ($request->has('delete-btn')) {
             Contact::find($request->id)->delete();
 
-            $categories = Category::all();
-            // $contacts = Contact::all();
             $contacts = Contact::Paginate(7);
         } else {
             $message = 'エラー';
-            $categories = Category::all();
-            // $contacts = Contact::all();
             $contacts = Contact::Paginate(7);
         }
 
+        $categories = Category::all();
         return view('admin', compact('categories', 'contacts'));
     }
 }

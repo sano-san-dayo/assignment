@@ -1,8 +1,8 @@
 @extends ('layouts.app')
 
 @section ('css')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
 <!-- <link rel="stylesheet" href="http://bootstrap3.cyberlab.info/bootstrap/dist/css/bootstrap.css"> -->
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/modal.css" />
@@ -40,6 +40,9 @@
                 @foreach ($categories as $category)
                 <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                 @endforeach
+                <!-- Jacascriptへ渡すためにデータを保存 -->
+                <span id="js-getCategories" data-name="{{ $categories }}"></span>
+                <?php $js_categories = json_encode($categories) ?>
             </select>
             <input class="search-form__input-date" type="date" name="date" onchange="changeColor(this) value="{{ old('date') }}">
             <input class="search-form__button-submit"type="submit" name="search-btn" value="検索">
@@ -140,13 +143,11 @@
                     </tr>
                     <tr>
                         <th>お問い合わせの種類</th>
-                        <td><span class="replace-categyry"></span></td>
-                        <td>{{ $categories[$contact['category_id']]['content'] }}</td>
+                        <td><span class="replace-category"></span></td>
                     </tr>
                     <tr>
                         <th>お問い合わせ内容</th>
-                        <dt><span class="repalce-detail"></span></dt>
-                        <td>{!! nl2br(e($contact['detail'])) !!}</td>
+                        <td><textarea class="replace-detail" readonly="readonly"></textarea></td>
                     </tr>
                 </table>
                 <div class="modal-footer">
@@ -176,13 +177,17 @@
         var tel3 = recipient['tel3'];
         var address = recipient['address'];
         var building = recipient['building'];
-        if (building == null) {
-            building = "";
-        }
-        var category = recipient['category_id'];
+
+        var category_id = recipient['category_id'];
         var detail = recipient['detail'];
 		var modal = $(this);
 
+        // 建物が未入力(null)の場合、空文字に置換
+        if (building == null) {
+            building = "";
+        }
+
+        // 性別をコードから文字列に変換
         if (gender == '1') {
             var genderString = '男性';
         } else if (gender == '2') {
@@ -191,6 +196,12 @@
             var genderString = 'その他';
         }
 
+        // お問い合わせの種類をコードから文字列に変換
+        const categories = <?php echo $js_categories; ?>;
+        let category = categories[category_id]['content'];
+
+
+        // 取得知多値をモーダル表示用HTMLへ設定
 		modal.find('.replace-id').text(id);
 		modal.find('.replace-first-name').text(first_name);
 		modal.find('.replace-last-name').text(last_name);
