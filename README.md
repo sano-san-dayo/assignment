@@ -4,7 +4,7 @@
 Dockerビルド
   1. git clone git@github.com:sano-san-dayo/assignment.git
   2. cd assignment
-  3. docker-compose up -d
+  3. docker-compose up -d  
   ※MySQL はOSによって起動しない場合あるのでぞれぞれのPCに合わせて  
   　docker-compose.ymlファイルを編集してください。   
   
