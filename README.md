@@ -21,7 +21,7 @@ Laravel環境構築
 　　 (変更後)  
 　　　　DB_HOST=mysql  
 　　　　B_DATABASE=laravel_db  
-　　　　DB_USERNAME=larabel_user  
+　　　　DB_USERNAME=laravel_user  
 　　　　DB_PASSWORD=laravel_pass  
 　5. php artisan key:generate  
 　6. php artisan db:seed  

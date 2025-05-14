@@ -2,8 +2,6 @@
 
 @section ('css')
 <link rel="stylesheet" href="http://bootstrap3.cyberlab.info/bootstrap/dist/css/bootstrap.css">
-<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-<!-- <link rel="stylesheet" href="css/modal.css" /> -->
 <link rel="stylesheet" href="css/admin.css">
 @endsection
 
@@ -47,7 +45,6 @@
     <!-- <div>
         <button>エクスポート</button>
     </div> -->
-    <!-- ｛｛ ＄ｃｏｎｔａｃｔｓー＞ｌｉｎｋｓ（）｝｝ -->
     {{ $contacts->appends(request()->input())->links() }}
     <table class="admin-table">
         <div class="table__header">
@@ -168,9 +165,7 @@
         var last_name = recipient['last_name'];
         var gender = recipient['gender'];
         var email = recipient['email'];
-        var tel1 = recipient['tel1'];
-        var tel2 = recipient['tel2'];
-        var tel3 = recipient['tel3'];
+        var tel = recipient['tel'];
         var address = recipient['address'];
         var building = recipient['building'];
         var category = recipient['category']['content'];
@@ -197,7 +192,7 @@
 		modal.find('.replace-last-name').text(last_name);
 		modal.find('.replace-gender').text(genderString);
 		modal.find('.replace-email').text(email);
-		modal.find('.replace-tel').text(tel1 + tel2 + tel3);
+		modal.find('.replace-tel').text(tel);
 		modal.find('.replace-address').text(address);
 		modal.find('.replace-building').text(building);
 		modal.find('.replace-category').text(category);
