@@ -1,11 +1,9 @@
 @extends ('layouts.app')
 
 @section ('css')
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
-<!-- <link rel="stylesheet" href="http://bootstrap3.cyberlab.info/bootstrap/dist/css/bootstrap.css"> -->
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/modal.css" />
+<link rel="stylesheet" href="http://bootstrap3.cyberlab.info/bootstrap/dist/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+<!-- <link rel="stylesheet" href="css/modal.css" /> -->
 <link rel="stylesheet" href="css/admin.css">
 @endsection
 
@@ -40,9 +38,6 @@
                 @foreach ($categories as $category)
                 <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                 @endforeach
-                <!-- Jacascriptへ渡すためにデータを保存 -->
-                <span id="js-getCategories" data-name="{{ $categories }}"></span>
-                <?php $js_categories = json_encode($categories) ?>
             </select>
             <input class="search-form__input-date" type="date" name="date" onchange="changeColor(this) value="{{ old('date') }}">
             <input class="search-form__button-submit"type="submit" name="search-btn" value="検索">
@@ -52,7 +47,8 @@
     <!-- <div>
         <button>エクスポート</button>
     </div> -->
-    {{ $contacts->links() }}
+    <!-- ｛｛ ＄ｃｏｎｔａｃｔｓー＞ｌｉｎｋｓ（）｝｝ -->
+    {{ $contacts->appends(request()->input())->links() }}
     <table class="admin-table">
         <div class="table__header">
 
@@ -79,7 +75,7 @@
                 ?>
             </td>
             <td>{{ $contact['email'] }}</td>
-            <td>{{ $categories[$contact['category_id']]['content'] }}</td>
+            <td>{{ $contact['category']['content'] }}</td>
             <td>
                 <button type="button" class="btn" data-toggle="modal" data-target="#contactModal" data-recipient="{{ $contact }}">
                     削除
@@ -102,7 +98,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
 
-                <table>
+                <table class="modal_table">
                     <tr>
                         <th>お名前</th>
                         <td>
@@ -177,8 +173,7 @@
         var tel3 = recipient['tel3'];
         var address = recipient['address'];
         var building = recipient['building'];
-
-        var category_id = recipient['category_id'];
+        var category = recipient['category']['content'];
         var detail = recipient['detail'];
 		var modal = $(this);
 
@@ -195,11 +190,6 @@
         } else if (gender == '3') {
             var genderString = 'その他';
         }
-
-        // お問い合わせの種類をコードから文字列に変換
-        const categories = <?php echo $js_categories; ?>;
-        let category = categories[category_id]['content'];
-
 
         // 取得知多値をモーダル表示用HTMLへ設定
 		modal.find('.replace-id').text(id);

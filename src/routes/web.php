@@ -19,7 +19,6 @@ Route::get('/', [ContactController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'contact']);
 Route::post('/confirm', [ContactController::class, 'contact']);
 Route::post('/thanks', [ContactController::class, 'confirm']);
-Route::post('/register', [ContactController::class, 'register']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AuthController::class, 'admin']);
 });

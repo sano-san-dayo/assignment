@@ -52,20 +52,9 @@ class ContactController extends Controller
         }
     }
 
-    /* ユーザ登録 */
-    public function register(RegisterRequest $request) {
-        /* 登録データ抽出 */
-        $user = $request->only(['name', 'email', 'password']);
-        /* 登録 */
-        User::create($user);
-    
-        return view('register');
-    }
-
     /* ログイン */
     public function login(LoginRequest $request) {
         $categories = Category::all();
-        // $contacts = Contact::all();
         $contacts = Contact::Paginate(7);
 
         return view('admin', compact('categories', 'contacts'));

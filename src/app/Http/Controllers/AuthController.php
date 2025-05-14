@@ -10,14 +10,14 @@ class AuthController extends Controller
 {
     /* ログイン画面表示 */
     public function index() {
-        return view('login');
+        return view('login', compact('categories', 'contacts'));
     }
 
     /* 管理画面表示 */
     public function admin() {
         $categories = Category::all();
-        /* $contacts = Contact::all(); */
-        $contacts = Contact::Paginate(7);
+        // $contacts = Contact::Paginate(7);
+        $contacts = Contact::with('category')->Paginate(7);
         return view('admin', compact('categories', 'contacts'));
     }
 
@@ -56,8 +56,7 @@ class AuthController extends Controller
                 });
             }
 
-            // $contacts = $query->get();
-            $contacts = $query->paginate(7);
+            $contacts = $query->paginate(7)->withQueryString();
         } elseif ($request->has('reset-btn')) {
             $contacts = Contact::Paginate(7);
         } elseif ($request->has('delete-btn')) {

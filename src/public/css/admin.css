@@ -1,3 +1,7 @@
+a {
+    color: #8b7969;
+}
+
 .admin-form__content {
     border-width: 10px;
     border-color: #c589b0;
@@ -155,6 +159,32 @@ svg.w-5.h-5 {
     height: 30px;
 }
 
-.modal {
-    display: none;
+.delete-form__button-submit {
+    color: #fff;
+    background-color: #ba370d;
+    padding: 8px 20px;
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.modal_table th {
+    color: #8b7969;
+    background-color: #fff;
+    font-family: 'Inika';
+    font-weight: 700;
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+.modal_table td {
+    font-family: 'Inika';
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.modal-footer {
+    text-align: center;
+    font-size: 20px;
 }
